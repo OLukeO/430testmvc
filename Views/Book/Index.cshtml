@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Book>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">書籍借閱系統</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Book" asp-action="Create" class="btn btn-primary">
+                進行借閱
+            </a>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                書名
+            </th>
+            <th>
+                ISBN
+            </th>
+            <th>
+                作者
+            </th>
+            <th>
+                出版社
+            </th>
+            <th>
+                出借人
+            </th>
+            <th>
+                借閱人
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td width="16%">
+                    @obj.book_name
+                </td>
+                <td width="16%">
+                    @obj.ISBN
+                </td>
+                <td width="16%">
+                    @obj.author
+                </td>
+                <td width="16%">
+                    @obj.publicsh
+                </td>
+                <td width="16%">
+                    @obj.book_borrow_ID
+                </td>
+                <td width="16%">
+                    @obj.user_ID
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Book" asp-action="Edit" asp-route-id="@obj.book_ID"> Edit </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

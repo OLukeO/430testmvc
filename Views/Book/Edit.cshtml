@@ -1,0 +1,44 @@
+﻿@model Book
+
+
+<form method="post" asp-action = "Edit">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">修改借書資料</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="book_name">書名</label>
+            <input asp-for="book_name" class="form-control"/>
+            <span asp-validation-for="book_name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ISBN">ISBN</label>
+            <input asp-for="ISBN" class="form-control"/>
+            <span asp-validation-for="ISBN" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="author">作者</label>
+            <input asp-for="author" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="publicsh">出版社</label>
+            <input asp-for="publicsh" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="book_borrow_ID">出借人</label>
+            <input asp-for="book_borrow_ID" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="user_ID">借閱人</label>
+            <input asp-for="user_ID" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">修改</button>
+        <a asp-controller="Book" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            回到總表
+        </a>
+    </div>
+</form>
+
+<partial name="_ValidationScriptsPartial" />
